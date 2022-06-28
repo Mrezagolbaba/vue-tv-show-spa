@@ -1,17 +1,24 @@
 <template>
   <div>
     <div class="pl-4 pr-4 pt-5 text-secondary">
-      <InfoView v-if="showDetails" :show-info="showDetails" />
+      <infoView v-if="showDetails" :show-info="showDetails" />
+      <seasonsView
+        v-if="showSeasons.length > 0"
+        :show-id="showId"
+        :seasons="showSeasons"
+      />
     </div>
   </div>
 </template>
 <script>
 import { getShow } from "@/api";
-import InfoView from "@/components/card/InfoView";
+import infoView from "@/components/card/InfoView";
+import seasonsView from "@/components/card/seasonView";
 
 export default {
   components: {
-    InfoView,
+    infoView,
+    seasonsView,
   },
   data() {
     return {
